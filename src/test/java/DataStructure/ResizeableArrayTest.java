@@ -82,15 +82,17 @@ public class ResizeableArrayTest {
         assertEquals(expected, resizeableArray.get(1));
     }
 
-    /*@Test(expected = IndexOutOfBoundsException.class)
-    public void testExceptionOutOfBoundsPut() {
+    @Test
+    void testExceptionOutOfBoundsPut() {
         ResizeableArray<Integer> resizeableArray = new ResizeableArray<>(8);
-        resizeableArray.put(8, 10);
+        assertThrows(IndexOutOfBoundsException.class, () ->
+                resizeableArray.put(8, 10));
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
-    public void testExceptionOutOfBoundsGut() {
+    @Test
+    void testExceptionOutOfBoundsGet() {
         ResizeableArray<Integer> resizeableArray = new ResizeableArray<>(8);
-        resizeableArray.get(8);
-    }*/
+        assertThrows(IndexOutOfBoundsException.class, () ->
+                resizeableArray.get(8));
+    }
 }
