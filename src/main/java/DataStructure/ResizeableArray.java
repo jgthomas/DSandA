@@ -1,4 +1,4 @@
-package jgtcode;
+package DataStructure;
 
 public class ResizeableArray<E> {
     private static final int RESIZE_FACTOR = 2;

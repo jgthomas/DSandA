@@ -1,4 +1,4 @@
-package jgtcode;
+package DataStructure;
 
 import static org.junit.jupiter.api.Assertions.*;
 
