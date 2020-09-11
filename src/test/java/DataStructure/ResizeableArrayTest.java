@@ -9,13 +9,13 @@ public class ResizeableArrayTest {
     @Test
     public void testDefaultSize() {
         ResizeableArray<Integer> resizeableArray = new ResizeableArray<>();
-        assertEquals(4, resizeableArray.maxSize());
+        assertEquals(4, resizeableArray.capacity());
     }
 
     @Test
     public void testSpecifiedSize() {
         ResizeableArray<Integer> resizeableArray = new ResizeableArray<>(8);
-        assertEquals(8, resizeableArray.maxSize());
+        assertEquals(8, resizeableArray.capacity());
     }
 
     @Test
@@ -42,7 +42,7 @@ public class ResizeableArrayTest {
         resizeableArray.add(3);
         resizeableArray.add(9);
         resizeableArray.add(3);
-        assertEquals(8, resizeableArray.maxSize());
+        assertEquals(8, resizeableArray.capacity());
     }
 
     @Test
@@ -50,7 +50,7 @@ public class ResizeableArrayTest {
         ResizeableArray<Integer> resizeableArray = new ResizeableArray<>();
         Integer[] numbers = {0,1,2,3,4,5,6,7,8,9};
         resizeableArray.addAll(numbers);
-        assertEquals(16, resizeableArray.maxSize());
+        assertEquals(16, resizeableArray.capacity());
     }
 
     @Test

@@ -70,7 +70,7 @@ public class ResizeableArray<E> {
         }
     }
 
-    public int maxSize() {
+    public int capacity() {
         return capacity;
     }
 
