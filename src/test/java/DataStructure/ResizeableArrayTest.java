@@ -106,6 +106,18 @@ public class ResizeableArrayTest {
     }
 
     @Test
+    void testExceptionOutOfBoundsPutAtLogicalSize() {
+        ResizeableArray<Integer> resizeableArray = new ResizeableArray<>(8);
+        Integer[] numbers = {0,1,2,3,4,5,6,7,8,9};
+        resizeableArray.addAll(numbers);
+
+        assertEquals(10, resizeableArray.size());
+
+        assertThrows(IndexOutOfBoundsException.class, () ->
+                resizeableArray.put(10, 40));
+    }
+
+    @Test
     void testExceptionOutOfBoundsGetBeyondLogicalSize() {
         ResizeableArray<Integer> resizeableArray = new ResizeableArray<>(8);
         Integer[] numbers = {0,1,2,3,4,5,6,7,8,9};
@@ -113,5 +125,17 @@ public class ResizeableArrayTest {
 
         assertThrows(IndexOutOfBoundsException.class, () ->
                 resizeableArray.get(12));
+    }
+
+    @Test
+    void testExceptionOutOfBoundsGetAtLogicalSize() {
+        ResizeableArray<Integer> resizeableArray = new ResizeableArray<>(8);
+        Integer[] numbers = {0,1,2,3,4,5,6,7,8,9};
+        resizeableArray.addAll(numbers);
+
+        assertEquals(10, resizeableArray.size());
+
+        assertThrows(IndexOutOfBoundsException.class, () ->
+                resizeableArray.get(10));
     }
 }
