@@ -17,6 +17,12 @@ public class ResizeableArray<E> {
         this.array = createArray(this.capacity);
     }
 
+    /**
+     * Access a value at the specified position, within bounds of logical size
+     *
+     * @param pos The array index to access
+     * @return The value at that position
+     */
     public E get(int pos) {
         if (outOfBounds(pos)) {
             throw new IndexOutOfBoundsException();
@@ -25,6 +31,12 @@ public class ResizeableArray<E> {
         return array[pos];
     }
 
+    /**
+     * Insert a value at the specified position, within bounds of logical size
+     *
+     * @param pos The array index to insert
+     * @param item The value to be inserted
+     */
     public void put(int pos, E item) {
         if (outOfBounds(pos)) {
             throw new IndexOutOfBoundsException();
@@ -33,6 +45,11 @@ public class ResizeableArray<E> {
         array[pos] = item;
     }
 
+    /**
+     * Append an item to the end of the array, resizing if needed
+     *
+     * @param item The item to append
+     */
     public void add(E item) {
         if (needsResizing()) {
             resizeArray();
@@ -42,6 +59,11 @@ public class ResizeableArray<E> {
         logicalSize++;
     }
 
+    /**
+     * Append all items to the end of the array
+     *
+     * @param items The items to append
+     */
     public void addAll(E [] items) {
         for (E item : items) {
             add(item);
