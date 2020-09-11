@@ -79,16 +79,16 @@ public class ResizeableArray<E> {
     }
 
     private void resizeArray() {
-        int newArrayLen = RESIZE_FACTOR * capacity;
-        E [] newArray = createArray(newArrayLen);
+        int newCapacity = RESIZE_FACTOR * capacity;
+        E [] newArray = createArray(newCapacity);
         System.arraycopy(array, 0, newArray, 0, capacity);
         array = newArray;
-        capacity = newArrayLen;
+        capacity = newCapacity;
     }
 
-    private E [] createArray(int size) {
+    private E [] createArray(int capacity) {
         @SuppressWarnings("unchecked")
-        E[] arr = (E[]) new Object[size];
+        E[] arr = (E[]) new Object[capacity];
         return arr;
     }
 
