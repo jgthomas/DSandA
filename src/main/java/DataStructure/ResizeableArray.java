@@ -18,10 +18,18 @@ public class ResizeableArray<E> {
     }
 
     public E get(int pos) {
+        if (outOfBounds(pos)) {
+            throw new IndexOutOfBoundsException();
+        }
+
         return array[pos];
     }
 
     public void put(int pos, E item) {
+        if (outOfBounds(pos)) {
+            throw new IndexOutOfBoundsException();
+        }
+
         array[pos] = item;
     }
 
@@ -64,5 +72,9 @@ public class ResizeableArray<E> {
 
     private boolean needsResizing() {
         return logicalSize == capacity - 1;
+    }
+
+    private boolean outOfBounds(int pos) {
+        return pos >= logicalSize;
     }
 }

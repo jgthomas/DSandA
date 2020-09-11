@@ -82,16 +82,36 @@ public class ResizeableArrayTest {
     }
 
     @Test
-    void testExceptionOutOfBoundsPut() {
+    void testExceptionOutOfBoundsPutEmpty() {
         ResizeableArray<Integer> resizeableArray = new ResizeableArray<>(8);
         assertThrows(IndexOutOfBoundsException.class, () ->
                 resizeableArray.put(8, 10));
     }
 
     @Test
-    void testExceptionOutOfBoundsGet() {
+    void testExceptionOutOfBoundsGetEmpty() {
         ResizeableArray<Integer> resizeableArray = new ResizeableArray<>(8);
         assertThrows(IndexOutOfBoundsException.class, () ->
                 resizeableArray.get(8));
+    }
+
+    @Test
+    void testExceptionOutOfBoundsPutBeyondLogicalSize() {
+        ResizeableArray<Integer> resizeableArray = new ResizeableArray<>(8);
+        Integer[] numbers = {0,1,2,3,4,5,6,7,8,9};
+        resizeableArray.addAll(numbers);
+
+        assertThrows(IndexOutOfBoundsException.class, () ->
+                resizeableArray.put(12, 10));
+    }
+
+    @Test
+    void testExceptionOutOfBoundsGetBeyondLogicalSize() {
+        ResizeableArray<Integer> resizeableArray = new ResizeableArray<>(8);
+        Integer[] numbers = {0,1,2,3,4,5,6,7,8,9};
+        resizeableArray.addAll(numbers);
+
+        assertThrows(IndexOutOfBoundsException.class, () ->
+                resizeableArray.get(12));
     }
 }
