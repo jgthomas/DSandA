@@ -2,19 +2,19 @@ package DataStructure;
 
 public class ResizeableArray<E> {
     private static final int RESIZE_FACTOR = 2;
-    private static final int DEFAULT_SIZE = 4;
-    private int arrayLen;
-    private int currentPos;
+    private static final int DEFAULT_CAPACITY = 4;
+    private int capacity;
+    private int logicalSize;
     private E [] array;
 
     public ResizeableArray() {
-        this(DEFAULT_SIZE);
+        this(DEFAULT_CAPACITY);
     }
 
-    public ResizeableArray(int size) {
-        this.arrayLen = size;
-        this.currentPos = 0;
-        this.array = createArray(arrayLen);
+    public ResizeableArray(int capacity) {
+        this.capacity = capacity;
+        this.logicalSize = 0;
+        this.array = createArray(this.capacity);
     }
 
     public E get(int pos) {
@@ -30,8 +30,8 @@ public class ResizeableArray<E> {
             resizeArray();
         }
 
-        array[currentPos] = item;
-        currentPos++;
+        array[logicalSize] = item;
+        logicalSize++;
     }
 
     public void addAll(E [] items) {
@@ -41,19 +41,19 @@ public class ResizeableArray<E> {
     }
 
     public int maxSize() {
-        return arrayLen;
+        return capacity;
     }
 
     public int size() {
-        return currentPos;
+        return logicalSize;
     }
 
     private void resizeArray() {
-        int newArrayLen = RESIZE_FACTOR * arrayLen;
+        int newArrayLen = RESIZE_FACTOR * capacity;
         E [] newArray = createArray(newArrayLen);
-        System.arraycopy(array, 0, newArray, 0, arrayLen);
+        System.arraycopy(array, 0, newArray, 0, capacity);
         array = newArray;
-        arrayLen = newArrayLen;
+        capacity = newArrayLen;
     }
 
     private E [] createArray(int size) {
@@ -63,6 +63,6 @@ public class ResizeableArray<E> {
     }
 
     private boolean needsResizing() {
-        return currentPos == arrayLen;
+        return logicalSize == capacity;
     }
 }
