@@ -42,7 +42,6 @@ public class ResizeableArrayTest {
         resizeableArray.add(3);
         resizeableArray.add(9);
         resizeableArray.add(3);
-        resizeableArray.add(8);
         assertEquals(8, resizeableArray.maxSize());
     }
 

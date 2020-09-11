@@ -63,6 +63,6 @@ public class ResizeableArray<E> {
     }
 
     private boolean needsResizing() {
-        return logicalSize == capacity;
+        return logicalSize == capacity - 1;
     }
 }
