@@ -24,14 +24,15 @@ public class Question1BitVectorTest {
     public void firstRepeat() {
         String input = "doggies";
         Question1BitVector question1BitVector = new Question1BitVector(input);
-        assertEquals('g', question1BitVector.firstRepeatCharacter());
         assertFalse(question1BitVector.uniqueCharacters());
+        assertEquals('g', question1BitVector.firstRepeatCharacter());
     }
 
     @Test
     public void firstRepeatNoRepeat() {
         String input = "reason";
         Question1BitVector question1BitVector = new Question1BitVector(input);
+        assertTrue(question1BitVector.uniqueCharacters());
         assertEquals('\u0000', question1BitVector.firstRepeatCharacter());
     }
 
@@ -39,31 +40,31 @@ public class Question1BitVectorTest {
     public void firstRepeatUpperCase() {
         String input = "DOGGIES";
         Question1BitVector question1BitVector = new Question1BitVector(input);
-        assertEquals('G', question1BitVector.firstRepeatCharacter());
         assertFalse(question1BitVector.uniqueCharacters());
+        assertEquals('G', question1BitVector.firstRepeatCharacter());
     }
 
     @Test
     public void firstRepeatMultiple() {
         String input = "doomed";
         Question1BitVector question1BitVector = new Question1BitVector(input);
-        assertEquals('o', question1BitVector.firstRepeatCharacter());
         assertFalse(question1BitVector.uniqueCharacters());
+        assertEquals('o', question1BitVector.firstRepeatCharacter());
     }
 
     @Test
     public void firstRepeatMultipleMixedCase() {
         String input = "Doomed";
         Question1BitVector question1BitVector = new Question1BitVector(input);
-        assertEquals('o', question1BitVector.firstRepeatCharacter());
         assertFalse(question1BitVector.uniqueCharacters());
+        assertEquals('o', question1BitVector.firstRepeatCharacter());
     }
 
     @Test
     public void firstRepeatWithNumbers() {
         String input = "tech101";
         Question1BitVector question1BitVector = new Question1BitVector(input);
-        assertEquals('1', question1BitVector.firstRepeatCharacter());
         assertFalse(question1BitVector.uniqueCharacters());
+        assertEquals('1', question1BitVector.firstRepeatCharacter());
     }
 }

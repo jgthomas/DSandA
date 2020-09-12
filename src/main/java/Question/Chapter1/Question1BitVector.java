@@ -15,7 +15,6 @@ public class Question1BitVector {
     }
 
     public char firstRepeatCharacter() {
-        uniqueCharacters();
         return repeat;
     }
 
