@@ -12,4 +12,12 @@ public class StringMakerTest {
         stringMaker.add("hello");
         assertEquals(5, stringMaker.length());
     }
+
+    @Test
+    public void buildsCorrectly() {
+        StringMaker stringMaker = new StringMaker();
+        stringMaker.add("Hello,");
+        stringMaker.add(" Dolly!");
+        assertEquals("Hello, Dolly!", stringMaker.toString());
+    }
 }
