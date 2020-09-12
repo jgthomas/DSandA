@@ -18,10 +18,10 @@ public class StringMaker {
     }
 
     public String toString() {
-        return new String(toChars());
+        return new String(bufferToChars());
     }
 
-    private char[] toChars() {
+    private char[] bufferToChars() {
         char[] chars = new char[stringBits.size()];
 
         for (int i = 0; i < stringBits.size(); i++) {
