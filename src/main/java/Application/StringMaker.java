@@ -21,6 +21,10 @@ public class StringMaker {
         return new String(bufferToChars());
     }
 
+    private Character[] stringToCharacters(String string) {
+        return string.chars().mapToObj(c -> (char) c).toArray(Character[]::new);
+    }
+
     private char[] bufferToChars() {
         char[] chars = new char[stringBits.size()];
 
@@ -29,9 +33,5 @@ public class StringMaker {
         }
 
         return chars;
-    }
-
-    private Character[] stringToCharacters(String string) {
-        return string.chars().mapToObj(c -> (char) c).toArray(Character[]::new);
     }
 }
