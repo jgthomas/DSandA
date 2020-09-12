@@ -20,4 +20,12 @@ public class StringMakerTest {
         stringMaker.add(" Dolly!");
         assertEquals("Hello, Dolly!", stringMaker.toString());
     }
+
+    @Test
+    public void buildsCorrectlyAddAll() {
+        String[] strings = { "One", "Two", "Three"};
+        StringMaker stringMaker = new StringMaker();
+        stringMaker.addAll(strings);
+        assertEquals("OneTwoThree", stringMaker.toString());
+    }
 }

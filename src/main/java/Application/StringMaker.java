@@ -13,6 +13,12 @@ public class StringMaker {
         stringBits.addAll(stringToCharacters(string));
     }
 
+    public void addAll(String[] strings) {
+        for (String string : strings) {
+            add(string);
+        }
+    }
+
     public int length() {
         return stringBits.size();
     }
