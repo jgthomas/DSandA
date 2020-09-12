@@ -25,6 +25,7 @@ public class Question1BitVectorTest {
         String input = "doggies";
         Question1BitVector question1BitVector = new Question1BitVector(input);
         assertEquals('g', question1BitVector.firstRepeatCharacter());
+        assertFalse(question1BitVector.uniqueCharacters());
     }
 
     @Test
@@ -39,6 +40,7 @@ public class Question1BitVectorTest {
         String input = "DOGGIES";
         Question1BitVector question1BitVector = new Question1BitVector(input);
         assertEquals('G', question1BitVector.firstRepeatCharacter());
+        assertFalse(question1BitVector.uniqueCharacters());
     }
 
     @Test
@@ -46,6 +48,7 @@ public class Question1BitVectorTest {
         String input = "doomed";
         Question1BitVector question1BitVector = new Question1BitVector(input);
         assertEquals('o', question1BitVector.firstRepeatCharacter());
+        assertFalse(question1BitVector.uniqueCharacters());
     }
 
     @Test
@@ -53,6 +56,7 @@ public class Question1BitVectorTest {
         String input = "Doomed";
         Question1BitVector question1BitVector = new Question1BitVector(input);
         assertEquals('o', question1BitVector.firstRepeatCharacter());
+        assertFalse(question1BitVector.uniqueCharacters());
     }
 
     @Test
@@ -60,5 +64,6 @@ public class Question1BitVectorTest {
         String input = "tech101";
         Question1BitVector question1BitVector = new Question1BitVector(input);
         assertEquals('1', question1BitVector.firstRepeatCharacter());
+        assertFalse(question1BitVector.uniqueCharacters());
     }
 }
