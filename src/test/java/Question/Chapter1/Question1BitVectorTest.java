@@ -54,4 +54,11 @@ public class Question1BitVectorTest {
         Question1BitVector question1BitVector = new Question1BitVector(input);
         assertEquals('o', question1BitVector.firstRepeatCharacter());
     }
+
+    @Test
+    public void firstRepeatWithNumbers() {
+        String input = "tech101";
+        Question1BitVector question1BitVector = new Question1BitVector(input);
+        assertEquals('1', question1BitVector.firstRepeatCharacter());
+    }
 }
