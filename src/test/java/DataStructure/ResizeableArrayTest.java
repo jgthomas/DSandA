@@ -76,17 +76,6 @@ public class ResizeableArrayTest {
     }
 
     @Test
-    public void testConvertToList() {
-        ResizeableArray<Integer> resizeableArray = new ResizeableArray<>();
-        resizeableArray.add(9);
-        resizeableArray.add(3);
-        resizeableArray.add(9);
-        resizeableArray.add(3);
-        List<Integer> expected = new ArrayList<>(Arrays.asList(9,3,9,3));
-        assertEquals(expected, resizeableArray.toList());
-    }
-
-    @Test
     public void testPutInboundIndex() {
         ResizeableArray<Integer> resizeableArray = new ResizeableArray<>();
         resizeableArray.add(9);

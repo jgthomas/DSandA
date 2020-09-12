@@ -1,8 +1,5 @@
 package DataStructure;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class ResizeableArray<E> {
     private static final int RESIZE_FACTOR = 2;
     private static final int DEFAULT_CAPACITY = 4;
@@ -79,10 +76,6 @@ public class ResizeableArray<E> {
 
     public int size() {
         return logicalSize;
-    }
-
-    public List<E> toList() {
-        return Arrays.asList(Arrays.copyOfRange(array, 0, logicalSize));
     }
 
     private void resizeArray() {
