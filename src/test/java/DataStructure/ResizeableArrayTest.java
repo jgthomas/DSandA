@@ -4,6 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 public class ResizeableArrayTest {
     @Test
@@ -69,6 +73,17 @@ public class ResizeableArrayTest {
         resizeableArray.add(9);
         resizeableArray.add(3);
         assertEquals(4, resizeableArray.size());
+    }
+
+    @Test
+    public void testConvertToList() {
+        ResizeableArray<Integer> resizeableArray = new ResizeableArray<>();
+        resizeableArray.add(9);
+        resizeableArray.add(3);
+        resizeableArray.add(9);
+        resizeableArray.add(3);
+        List<Integer> expected = new ArrayList<>(Arrays.asList(9,3,9,3));
+        assertEquals(expected, resizeableArray.toList());
     }
 
     @Test
