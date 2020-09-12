@@ -2,10 +2,6 @@ package Application;
 
 import DataStructure.ResizeableArray;
 
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
 public class StringMaker {
     private final ResizeableArray<Character> stringBits;
 
@@ -21,17 +17,18 @@ public class StringMaker {
         return stringBits.size();
     }
 
-    /*public String toString() {
-        return stringBits.toList().stream()
-                .map(Object::toString)
-                .collect(Collectors.joining());
-    }*/
-
     public String toString() {
+        return new String(toChars());
+    }
+
+    private char[] toChars() {
         char[] chars = new char[stringBits.size()];
-        IntStream.range(0, stringBits.size())
-                .forEach(i -> chars[i] = stringBits.get(i));
-        return new String(chars);
+
+        for (int i = 0; i < stringBits.size(); i++) {
+            chars[i] = stringBits.get(i);
+        }
+
+        return chars;
     }
 
     private Character[] stringToCharacters(String string) {
