@@ -1,11 +1,11 @@
 package Question.Chapter1;
 
-public class Question1 {
+public class Question1BitVector {
     private static final char COMPARATOR = 'a';
     private final String toCheck;
     private int bitVector = 0;
 
-    public Question1(String input) {
+    public Question1BitVector(String input) {
         this.toCheck = input;
     }
 
