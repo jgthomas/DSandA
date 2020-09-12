@@ -2,6 +2,7 @@ package Question.Chapter1;
 
 public class Question1BitVector {
     private static final char COMPARATOR = 'a';
+    private char repeat;
     private final String toCheck;
     private int bitVector = 0;
 
@@ -9,12 +10,19 @@ public class Question1BitVector {
         this.toCheck = input;
     }
 
+    public char firstRepeatCharacter() {
+        uniqueCharacters();
+        return repeat;
+    }
+
     public boolean uniqueCharacters() {
 
         for (int i = 0; i < toCheck.length(); i++) {
-            int charValue = toCheck.charAt(i) - COMPARATOR;
+            char character = toCheck.charAt(i);
+            int charValue = character - COMPARATOR;
 
             if (inBitVector(charValue)) {
+                repeat = character;
                 return false;
             } else {
                 addToBitVector(charValue);

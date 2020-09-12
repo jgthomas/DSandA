@@ -19,4 +19,39 @@ public class Question1BitVectorTest {
         Question1BitVector question1BitVector = new Question1BitVector(input);
         assertFalse(question1BitVector.uniqueCharacters());
     }
+
+    @Test
+    public void firstRepeat() {
+        String input = "doggies";
+        Question1BitVector question1BitVector = new Question1BitVector(input);
+        assertEquals('g', question1BitVector.firstRepeatCharacter());
+    }
+
+    @Test
+    public void firstRepeatNoRepeat() {
+        String input = "reason";
+        Question1BitVector question1BitVector = new Question1BitVector(input);
+        assertEquals('\u0000', question1BitVector.firstRepeatCharacter());
+    }
+
+    @Test
+    public void firstRepeatUpperCase() {
+        String input = "DOGGIES";
+        Question1BitVector question1BitVector = new Question1BitVector(input);
+        assertEquals('G', question1BitVector.firstRepeatCharacter());
+    }
+
+    @Test
+    public void firstRepeatMultiple() {
+        String input = "doomed";
+        Question1BitVector question1BitVector = new Question1BitVector(input);
+        assertEquals('o', question1BitVector.firstRepeatCharacter());
+    }
+
+    @Test
+    public void firstRepeatMultipleMixedCase() {
+        String input = "Doomed";
+        Question1BitVector question1BitVector = new Question1BitVector(input);
+        assertEquals('o', question1BitVector.firstRepeatCharacter());
+    }
 }
