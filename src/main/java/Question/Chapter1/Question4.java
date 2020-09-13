@@ -18,19 +18,17 @@ public class Question4 {
             return true;
         }
 
-        int charCountCheck = checkCharCounts(charCountMap);
-
-        if (nonWhitespaceLength(string) % 2 == 0) {
-            return charCountCheck == 0;
-        } else {
-            return charCountCheck == 1;
+        if (isEvenLength(string)) {
+            return checkCharCounts(charCountMap) == 0;
         }
+
+        return checkCharCounts(charCountMap) == 1;
     }
 
     private static int checkCharCounts(Map<Character, Integer> charCountMap) {
         int sum = 0;
         for (Character c : charCountMap.keySet()) {
-            if (!Character.isWhitespace(c)) {
+            if (isCountedCharacter(c)) {
                 sum += charCountMap.get(c) % 2;
             }
         }
@@ -38,7 +36,19 @@ public class Question4 {
         return sum;
     }
 
+    private static boolean isEvenLength(String string) {
+        return nonWhitespaceLength(string) % 2 == 0;
+    }
+
     private static int nonWhitespaceLength(String string) {
         return string.replaceAll(" ", "").length();
+    }
+
+    private static boolean isCountedCharacter(char c) {
+        if (Character.isWhitespace(c)) {
+            return false;
+        }
+
+        return true;
     }
 }
