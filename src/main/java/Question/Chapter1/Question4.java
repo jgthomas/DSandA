@@ -25,6 +25,13 @@ public class Question4 {
         return checkCharCounts(charCountMap) == 1;
     }
 
+    /**
+     * Even length strings require an even number of each character to be
+     * a palindrome.
+     *
+     * Odd length strings can have one character appear an odd number of times,
+     * but the other characters must appear an even number.
+     */
     private static int checkCharCounts(Map<Character, Integer> charCountMap) {
         int sum = 0;
         for (Character c : charCountMap.keySet()) {
