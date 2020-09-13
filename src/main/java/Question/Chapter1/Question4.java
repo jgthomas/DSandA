@@ -45,10 +45,6 @@ public class Question4 {
     }
 
     private static boolean isCountedCharacter(char c) {
-        if (Character.isWhitespace(c)) {
-            return false;
-        }
-
-        return true;
+        return !Character.isWhitespace(c);
     }
 }
