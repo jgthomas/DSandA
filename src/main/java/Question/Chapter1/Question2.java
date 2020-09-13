@@ -1,8 +1,9 @@
 package Question.Chapter1;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
+
+import Utility.Utility;
 
 public class Question2 {
 
@@ -42,23 +43,9 @@ public class Question2 {
             return false;
         }
 
-        Map<Character, Integer> firstMap = checkCharacters(first);
-        Map<Character, Integer> secondMap = checkCharacters(second);
+        Map<Character, Integer> firstMap = Utility.buildCharacterMap(first);
+        Map<Character, Integer> secondMap = Utility.buildCharacterMap(second);
 
         return firstMap.equals(secondMap);
-    }
-
-    private static Map<Character, Integer> checkCharacters(String string) {
-        Map<Character, Integer> charMap = new HashMap<>();
-
-        for (char c : string.toCharArray()) {
-            if (charMap.containsKey(c)) {
-                charMap.put(c, charMap.get(c) + 1);
-            } else {
-                charMap.put(c, 1);
-            }
-        }
-
-        return charMap;
     }
 }
