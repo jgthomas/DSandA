@@ -1,1 +1,1 @@
-# DSandA [![Build Status](https://travis-ci.com/jgthomas/DSandA.svg?token=dDxtcbJJWWsYtXzvNdsa&branch=master)](https://travis-ci.com/jgthomas/DSandA)
+# DSandA [![Build Status](https://travis-ci.com/jgthomas/DSandA.svg?token=dDxtcbJJWWsYtXzvNdsa&branch=master)](https://travis-ci.com/jgthomas/DSandA) [![codecov](https://codecov.io/gh/jgthomas/DSandA/branch/master/graph/badge.svg?token=C0YTYKR65R)](https://codecov.io/gh/jgthomas/DSandA)
