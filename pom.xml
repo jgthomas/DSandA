@@ -22,13 +22,13 @@
 			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- static analysis -->
+		<!-- static analysis - report at target/site/pmd.html -->
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-pmd-plugin</artifactId>
 			<version>3.13.0</version>
 		</dependency>
-		<!-- code coverage -->
+		<!-- code coverage - report at target/site/jacoco/index.html -->
 		<dependency>
 			<groupId>org.jacoco</groupId>
 			<artifactId>jacoco-maven-plugin</artifactId>
