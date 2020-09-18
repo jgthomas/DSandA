@@ -57,9 +57,11 @@
 				<artifactId>maven-pmd-plugin</artifactId>
 				<version>${pmd.version}</version>
 				<configuration>
+					<!-- turn off Eclipse-specific linkage -->
 					<linkXRef>false</linkXRef>
 				</configuration>
 				<executions>
+					<!-- generate report -->
 					<execution>
 						<id>pmd-scan</id>
 						<phase>verify</phase>
@@ -92,8 +94,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
-
 		</plugins>
 	</build>
 
