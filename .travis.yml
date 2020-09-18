@@ -1,7 +1,6 @@
 os: linux
-disy: xenial
+dist: xenial
 language: java
-sudo: false
 cache:
     directories:
             - $HOME/.m2
