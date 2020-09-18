@@ -15,16 +15,24 @@
 	</properties>
 
 	<dependencies>
+		<!-- unit tests -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
 			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- static analysis -->
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-pmd-plugin</artifactId>
 			<version>3.13.0</version>
+		</dependency>
+		<!-- code coverage -->
+		<dependency>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.8.6</version>
 		</dependency>
 	</dependencies>
 
@@ -57,6 +65,31 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.6</version>
+				<executions>
+					<!-- prepare the agent -->
+					<execution>
+						<id>prepare-agent</id>
+						<phase>process-test-classes</phase>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<!-- generate an HTML report -->
+					<execution>
+						<id>report</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+
 		</plugins>
 	</build>
 
