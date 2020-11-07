@@ -1,0 +1,15 @@
+package Question.Chapter1;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+public class Question5Test {
+
+    @Test
+    public void singleCharacterEvenPalindrome() {
+        String first = "pale";
+        String second = "bale";
+        assertTrue(Question5.oneEditAway(first, second));
+    }
+}
