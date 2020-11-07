@@ -1,7 +1,9 @@
 package Question.Chapter1;
 
-public class Question3 {
+public final class Question3 {
     private static final char[] spaceHold = {'0', '2', '%'};
+
+    private Question3() {}
 
     public static String toURL(String string, int trueLength) {
         char[] chars = string.toCharArray();

@@ -5,7 +5,9 @@ import java.util.Map;
 
 import Utility.Utility;
 
-public class Question2 {
+public final class Question2 {
+
+    private Question2() {}
 
     /**
      * O(n log n) solution, sorts the characters first

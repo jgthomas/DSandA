@@ -2,7 +2,9 @@ package Question.Chapter1;
 
 import java.util.Arrays;
 
-public class Question5 {
+public final class Question5 {
+
+    private Question5() {}
 
     public static boolean oneEditAway(String  first, String second) {
         char[] firstChars = first.toCharArray();

@@ -4,7 +4,9 @@ import Utility.Utility;
 
 import java.util.Map;
 
-public class Question4 {
+public final class Question4 {
+
+    private Question4() {}
 
     public static boolean isPalindromePermutation(String string) {
 
