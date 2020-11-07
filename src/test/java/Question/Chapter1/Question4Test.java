@@ -42,6 +42,11 @@ public class Question4Test {
         assertTrue(Question4.isPalindromePermutation(string));
     }
 
+    @Test
+    public void oddNotPalindrome() {
+        String string = "popover";
+        assertFalse(Question4.isPalindromePermutation(string));
+    }
 
     @Test
     public void fromBook() {
