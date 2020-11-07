@@ -1,23 +1,33 @@
 package Question.Chapter1;
 
+import java.util.Arrays;
+
 public class Question5 {
 
     public static boolean oneEditAway(String  first, String second) {
         char[] firstChars = first.toCharArray();
         char[] secondChars = second.toCharArray();
 
-        if (first.length() == second.length()) {
+        if (firstChars.length == secondChars.length) {
             return oneAway(firstChars, secondChars);
         }
 
-        return false;
+        if (firstChars.length > secondChars.length) {
+            return oneAwayDiffLengths(firstChars, secondChars);
+        }
+
+        return oneAwayDiffLengths(secondChars, firstChars);
     }
 
     /**
      * Requires each string be the same length
      */
     private static boolean oneAway(char[] firstChars, char[] secondChars) {
-        int edits = 0;
+        return oneAway(firstChars, secondChars, 0);
+    }
+
+    private static boolean oneAway(char[] firstChars, char[] secondChars, int editCount) {
+        int edits = editCount;
 
         for (int i = 0; i < firstChars.length; i++) {
             if (firstChars[i] != secondChars[i]) {
@@ -26,5 +36,39 @@ public class Question5 {
         }
 
         return edits <= 1;
+    }
+
+    private static boolean oneAwayDiffLengths(char[] longer, char[] shorter) {
+        int diffPoint = firstDifference(longer, shorter);
+
+        // final char in shorter different, but longer also has one more
+        if (diffPoint == shorter.length-1) {
+            return false;
+        }
+
+        // all chars in shorter found in longer in sequence
+        if (diffPoint == shorter.length) {
+            return true;
+        }
+
+        char[] newFirst = Arrays.copyOfRange(longer, diffPoint+1, longer.length-1);
+        char[] newSecond = Arrays.copyOfRange(shorter, diffPoint, shorter.length-1);
+
+        return oneAway(newFirst, newSecond, 1);
+    }
+
+    private static int firstDifference(char[] longer, char[] shorter) {
+        for (int i = 0; i < longer.length; i++) {
+
+            if (i == shorter.length) {
+                return i;
+            }
+
+            if (longer[i] != shorter[i]) {
+                return i;
+            }
+        }
+
+        return shorter.length;
     }
 }
