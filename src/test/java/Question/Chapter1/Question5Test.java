@@ -7,9 +7,16 @@ import org.junit.jupiter.api.Test;
 public class Question5Test {
 
     @Test
-    public void singleCharacterEvenPalindrome() {
+    public void oneEditSameLength() {
         String first = "pale";
         String second = "bale";
+        assertTrue(Question5.oneEditAway(first, second));
+    }
+
+    @Test
+    public void noEditsSameLength() {
+        String first = "pale";
+        String second = "pale";
         assertTrue(Question5.oneEditAway(first, second));
     }
 }
