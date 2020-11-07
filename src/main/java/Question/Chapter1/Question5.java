@@ -12,6 +12,10 @@ public class Question5 {
             return oneAway(firstChars, secondChars);
         }
 
+        if (Math.abs(firstChars.length - secondChars.length) > 1) {
+            return false;
+        }
+
         if (firstChars.length > secondChars.length) {
             return oneAwayDiffLengths(firstChars, secondChars);
         }
@@ -51,6 +55,7 @@ public class Question5 {
             return true;
         }
 
+        // grab rest of each array, should now be same length
         char[] newFirst = Arrays.copyOfRange(longer, diffPoint+1, longer.length-1);
         char[] newSecond = Arrays.copyOfRange(shorter, diffPoint, shorter.length-1);
 

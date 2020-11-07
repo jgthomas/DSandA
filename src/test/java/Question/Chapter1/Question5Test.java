@@ -68,4 +68,18 @@ public class Question5Test {
         String second = "polly";
         assertFalse(Question5.oneEditAway(first, second));
     }
+
+    @Test
+    public void moreThanOneEditEndVeryDifferentLengths() {
+        String first = "pale";
+        String second = "palette";
+        assertFalse(Question5.oneEditAway(first, second));
+    }
+
+    @Test
+    public void moreThanOneEditMiddleVeryDifferentLengths() {
+        String first = "pale";
+        String second = "polite";
+        assertFalse(Question5.oneEditAway(first, second));
+    }
 }
