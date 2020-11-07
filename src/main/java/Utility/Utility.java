@@ -3,7 +3,9 @@ package Utility;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Utility {
+public final class Utility {
+
+    private Utility() {}
 
     public static Map<Character, Integer> buildCharacterMap(String string) {
         Map<Character, Integer> charMap = new HashMap<>();
