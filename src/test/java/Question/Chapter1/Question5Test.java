@@ -19,4 +19,11 @@ public class Question5Test {
         String second = "pale";
         assertTrue(Question5.oneEditAway(first, second));
     }
+
+    @Test
+    public void moreThanOneEditSameLength() {
+        String first = "pale";
+        String second = "pant";
+        assertFalse(Question5.oneEditAway(first, second));
+    }
 }

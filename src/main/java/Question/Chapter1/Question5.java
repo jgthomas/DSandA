@@ -10,6 +10,9 @@ public class Question5 {
         return false;
     }
 
+    /**
+     * Requires each string be the same length
+     */
     private static boolean oneAway(String first, String second) {
         int edits = 0;
         char[] firstChars = first.toCharArray();
