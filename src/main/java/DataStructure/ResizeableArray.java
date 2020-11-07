@@ -1,102 +1,102 @@
 package DataStructure;
 
 public class ResizeableArray<E> {
-    private static final int RESIZE_FACTOR = 2;
-    private static final int DEFAULT_CAPACITY = 4;
-    private int capacity;
-    private int logicalSize;
-    private E [] array;
+  private static final int RESIZE_FACTOR = 2;
+  private static final int DEFAULT_CAPACITY = 4;
+  private int capacity;
+  private int logicalSize;
+  private E[] array;
 
-    public ResizeableArray() {
-        this(DEFAULT_CAPACITY);
+  public ResizeableArray() {
+    this(DEFAULT_CAPACITY);
+  }
+
+  public ResizeableArray(int capacity) {
+    this.capacity = capacity;
+    this.logicalSize = 0;
+    this.array = createArray(this.capacity);
+  }
+
+  /**
+   * Access a value at the specified position, within bounds of logical size
+   *
+   * @param pos The array index to access
+   * @return The value at that position
+   */
+  public E get(int pos) {
+    if (outOfBounds(pos)) {
+      throw new IndexOutOfBoundsException();
     }
 
-    public ResizeableArray(int capacity) {
-        this.capacity = capacity;
-        this.logicalSize = 0;
-        this.array = createArray(this.capacity);
+    return array[pos];
+  }
+
+  /**
+   * Insert a value at the specified position, within bounds of logical size
+   *
+   * @param pos The array index to insert
+   * @param item The value to be inserted
+   */
+  public void put(int pos, E item) {
+    if (outOfBounds(pos)) {
+      throw new IndexOutOfBoundsException();
     }
 
-    /**
-     * Access a value at the specified position, within bounds of logical size
-     *
-     * @param pos The array index to access
-     * @return The value at that position
-     */
-    public E get(int pos) {
-        if (outOfBounds(pos)) {
-            throw new IndexOutOfBoundsException();
-        }
+    array[pos] = item;
+  }
 
-        return array[pos];
+  /**
+   * Append an item to the end of the array, resizing if needed
+   *
+   * @param item The item to append
+   */
+  public void add(E item) {
+    if (needsResizing()) {
+      resizeArray();
     }
 
-    /**
-     * Insert a value at the specified position, within bounds of logical size
-     *
-     * @param pos The array index to insert
-     * @param item The value to be inserted
-     */
-    public void put(int pos, E item) {
-        if (outOfBounds(pos)) {
-            throw new IndexOutOfBoundsException();
-        }
+    array[logicalSize] = item;
+    logicalSize++;
+  }
 
-        array[pos] = item;
+  /**
+   * Append all items to the end of the array
+   *
+   * @param items The items to append
+   */
+  public void addAll(E[] items) {
+    for (E item : items) {
+      add(item);
     }
+  }
 
-    /**
-     * Append an item to the end of the array, resizing if needed
-     *
-     * @param item The item to append
-     */
-    public void add(E item) {
-        if (needsResizing()) {
-            resizeArray();
-        }
+  public int capacity() {
+    return capacity;
+  }
 
-        array[logicalSize] = item;
-        logicalSize++;
-    }
+  public int size() {
+    return logicalSize;
+  }
 
-    /**
-     * Append all items to the end of the array
-     *
-     * @param items The items to append
-     */
-    public void addAll(E [] items) {
-        for (E item : items) {
-            add(item);
-        }
-    }
+  private void resizeArray() {
+    int newCapacity = RESIZE_FACTOR * capacity;
+    E[] newArray = createArray(newCapacity);
+    System.arraycopy(array, 0, newArray, 0, capacity);
+    array = newArray;
+    capacity = newCapacity;
+  }
 
-    public int capacity() {
-        return capacity;
-    }
+  private E[] createArray(int capacity) {
+    @SuppressWarnings("unchecked")
+    E[] arr = (E[]) new Object[capacity];
+    return arr;
+  }
 
-    public int size() {
-        return logicalSize;
-    }
+  private boolean needsResizing() {
+    return logicalSize == capacity - 1;
+  }
 
-    private void resizeArray() {
-        int newCapacity = RESIZE_FACTOR * capacity;
-        E [] newArray = createArray(newCapacity);
-        System.arraycopy(array, 0, newArray, 0, capacity);
-        array = newArray;
-        capacity = newCapacity;
-    }
-
-    private E [] createArray(int capacity) {
-        @SuppressWarnings("unchecked")
-        E[] arr = (E[]) new Object[capacity];
-        return arr;
-    }
-
-    private boolean needsResizing() {
-        return logicalSize == capacity - 1;
-    }
-
-    private boolean outOfBounds(int pos) {
-        return pos >= logicalSize;
-    }
+  private boolean outOfBounds(int pos) {
+    return pos >= logicalSize;
+  }
 }

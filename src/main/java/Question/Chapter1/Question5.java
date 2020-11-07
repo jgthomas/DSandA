@@ -4,74 +4,72 @@ import java.util.Arrays;
 
 public final class Question5 {
 
-    private Question5() {}
+  private Question5() {}
 
-    public static boolean oneEditAway(String  first, String second) {
-        char[] firstChars = first.toCharArray();
-        char[] secondChars = second.toCharArray();
+  public static boolean oneEditAway(String first, String second) {
+    char[] firstChars = first.toCharArray();
+    char[] secondChars = second.toCharArray();
 
-        if (firstChars.length == secondChars.length) {
-            return oneAway(firstChars, secondChars);
-        }
-
-        if (Math.abs(firstChars.length - secondChars.length) > 1) {
-            return false;
-        }
-
-        if (firstChars.length > secondChars.length) {
-            return oneAwayDiffLengths(firstChars, secondChars);
-        }
-
-        return oneAwayDiffLengths(secondChars, firstChars);
+    if (firstChars.length == secondChars.length) {
+      return oneAway(firstChars, secondChars);
     }
 
-    /**
-     * Requires each string be the same length
-     */
-    private static boolean oneAway(char[] firstChars, char[] secondChars) {
-        return oneAway(firstChars, secondChars, 0);
+    if (Math.abs(firstChars.length - secondChars.length) > 1) {
+      return false;
     }
 
-    private static boolean oneAway(char[] firstChars, char[] secondChars, int editCount) {
-        int edits = editCount;
-
-        for (int i = 0; i < firstChars.length; i++) {
-            if (firstChars[i] != secondChars[i]) {
-                edits++;
-            }
-        }
-
-        return edits <= 1;
+    if (firstChars.length > secondChars.length) {
+      return oneAwayDiffLengths(firstChars, secondChars);
     }
 
-    private static boolean oneAwayDiffLengths(char[] longer, char[] shorter) {
-        int diffPoint = firstDifference(longer, shorter);
+    return oneAwayDiffLengths(secondChars, firstChars);
+  }
 
-        // final char in shorter different, but longer also has one more
-        if (diffPoint == shorter.length-1) {
-            return false;
-        }
+  /** Requires each string be the same length */
+  private static boolean oneAway(char[] firstChars, char[] secondChars) {
+    return oneAway(firstChars, secondChars, 0);
+  }
 
-        // all chars in shorter found in longer in sequence
-        if (diffPoint == shorter.length) {
-            return true;
-        }
+  private static boolean oneAway(char[] firstChars, char[] secondChars, int editCount) {
+    int edits = editCount;
 
-        // grab rest of each array, should now be same length
-        char[] newFirst = Arrays.copyOfRange(longer, diffPoint+1, longer.length-1);
-        char[] newSecond = Arrays.copyOfRange(shorter, diffPoint, shorter.length-1);
-
-        return oneAway(newFirst, newSecond, 1);
+    for (int i = 0; i < firstChars.length; i++) {
+      if (firstChars[i] != secondChars[i]) {
+        edits++;
+      }
     }
 
-    private static int firstDifference(char[] longer, char[] shorter) {
-        for (int i = 0; i < shorter.length; i++) {
+    return edits <= 1;
+  }
 
-            if (longer[i] != shorter[i]) {
-                return i;
-            }
-        }
+  private static boolean oneAwayDiffLengths(char[] longer, char[] shorter) {
+    int diffPoint = firstDifference(longer, shorter);
 
-        return shorter.length;
+    // final char in shorter different, but longer also has one more
+    if (diffPoint == shorter.length - 1) {
+      return false;
     }
+
+    // all chars in shorter found in longer in sequence
+    if (diffPoint == shorter.length) {
+      return true;
+    }
+
+    // grab rest of each array, should now be same length
+    char[] newFirst = Arrays.copyOfRange(longer, diffPoint + 1, longer.length - 1);
+    char[] newSecond = Arrays.copyOfRange(shorter, diffPoint, shorter.length - 1);
+
+    return oneAway(newFirst, newSecond, 1);
+  }
+
+  private static int firstDifference(char[] longer, char[] shorter) {
+    for (int i = 0; i < shorter.length; i++) {
+
+      if (longer[i] != shorter[i]) {
+        return i;
+      }
+    }
+
+    return shorter.length;
+  }
 }
