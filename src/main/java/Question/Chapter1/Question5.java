@@ -65,11 +65,7 @@ public final class Question5 {
     }
 
     private static int firstDifference(char[] longer, char[] shorter) {
-        for (int i = 0; i < longer.length; i++) {
-
-            if (i == shorter.length) {
-                break;
-            }
+        for (int i = 0; i < shorter.length; i++) {
 
             if (longer[i] != shorter[i]) {
                 return i;
