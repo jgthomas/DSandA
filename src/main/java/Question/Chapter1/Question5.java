@@ -66,7 +66,7 @@ public class Question5 {
         for (int i = 0; i < longer.length; i++) {
 
             if (i == shorter.length) {
-                return i;
+                break;
             }
 
             if (longer[i] != shorter[i]) {
