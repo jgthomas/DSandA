@@ -22,7 +22,8 @@ public class Question8Test {
                 {0, 0, 0}
         };
 
-        assertArrayEquals(expected, Question8.zeroMatrix(matrix));
+        //assertArrayEquals(expected, Question8.zeroMatrix(matrix));
+        assertArrayEquals(expected, Question8.zeroMatrixConstantSpace(matrix));
     }
 
     @Test
