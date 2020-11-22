@@ -42,4 +42,22 @@ public class Question8Test {
 
         assertArrayEquals(expected, Question8.zeroMatrix(matrix));
     }
+
+    @Test
+    public void noZerosInAnswer() {
+        int[][] matrix = {
+                {1, 2, 3},
+                {3, 4, 5},
+                {6, 7, 8},
+                {7, 9, 10}
+        };
+        int[][] expected = {
+                {1, 2, 3},
+                {3, 4, 5},
+                {6, 7, 8},
+                {7, 9, 10}
+        };
+
+        assertArrayEquals(expected, Question8.zeroMatrix(matrix));
+    }
 }
