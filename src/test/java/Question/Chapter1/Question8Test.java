@@ -132,4 +132,22 @@ public class Question8Test {
 
         assertArrayEquals(expected, Question8.zeroMatrixConstantSpace(matrix));
     }
+
+    @Test
+    public void simpleMxNConstantSpaceEndRowTracker() {
+        int[][] matrix = {
+                {1, 2, 2},
+                {3, 4, 5},
+                {6, 7, 3},
+                {0, 9, 10}
+        };
+        int[][] expected = {
+                {0, 2, 2},
+                {0, 4, 5},
+                {0, 7, 3},
+                {0, 0, 0}
+        };
+
+        assertArrayEquals(expected, Question8.zeroMatrixConstantSpace(matrix));
+    }
 }
