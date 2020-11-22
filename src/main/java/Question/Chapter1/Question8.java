@@ -51,7 +51,7 @@ public final class Question8 {
                 }
 
                 boolean isTracker = rowColumnTracker == row;
-                handleRow(isTracker, matrix[row]);
+                handleRow(isTracker, matrix[row], matrix[rowColumnTracker]);
             }
         }
 
@@ -98,7 +98,7 @@ public final class Question8 {
         return false;
     }
 
-    private static void handleRow(boolean isTracker, int[] row) {
+    private static void handleRow(boolean isTracker, int[] row, int[] tracker) {
         if (isTracker) {
             for (int pos = 0; pos < row.length; pos++) {
                 if (row[pos] == 0) {
@@ -108,7 +108,14 @@ public final class Question8 {
                 }
             }
         } else {
-            zeroRow(row);
+            for (int pos = 0; pos < row.length; pos++) {
+                if (row[pos] == 0) {
+                    tracker[pos] = 1;
+                    row[pos] = 0;
+                } else {
+                    row[pos] = 0;
+                }
+            }
         }
     }
 }
