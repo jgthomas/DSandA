@@ -55,6 +55,10 @@ public final class Question8 {
             }
         }
 
+        if (rowColumnTracker == -1) {
+            return matrix;
+        }
+
         for (int col = 0; col < colCount; col++) {
             if (matrix[rowColumnTracker][col] == 1) {
                 for (int row = 0; row < rowCount; row++) {
@@ -64,12 +68,6 @@ public final class Question8 {
         }
 
         return matrix;
-    }
-
-    private static void zeroRow(int[] row) {
-        for (int pos = 0; pos < row.length; pos++) {
-            row[pos] = 0;
-        }
     }
 
     private static boolean hasZero(int[] row) {

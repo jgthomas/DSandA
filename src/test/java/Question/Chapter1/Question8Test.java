@@ -22,8 +22,7 @@ public class Question8Test {
                 {0, 0, 0}
         };
 
-        //assertArrayEquals(expected, Question8.zeroMatrix(matrix));
-        assertArrayEquals(expected, Question8.zeroMatrixConstantSpace(matrix));
+        assertArrayEquals(expected, Question8.zeroMatrix(matrix));
     }
 
     @Test
@@ -60,5 +59,59 @@ public class Question8Test {
         };
 
         assertArrayEquals(expected, Question8.zeroMatrix(matrix));
+    }
+
+    @Test
+    public void simpleMxNConstantSpace() {
+        int[][] matrix = {
+                {1, 2, 0},
+                {3, 4, 5},
+                {6, 7, 8},
+                {0, 9, 10}
+        };
+        int[][] expected = {
+                {0, 0, 0},
+                {0, 4, 0},
+                {0, 7, 0},
+                {0, 0, 0}
+        };
+
+        assertArrayEquals(expected, Question8.zeroMatrixConstantSpace(matrix));
+    }
+
+    @Test
+    public void allZerosInAnswerConstantSpace() {
+        int[][] matrix = {
+                {0, 0, 0},
+                {3, 4, 5},
+                {6, 7, 8},
+                {7, 9, 10}
+        };
+        int[][] expected = {
+                {0, 0, 0},
+                {0, 0, 0},
+                {0, 0, 0},
+                {0, 0, 0}
+        };
+
+        assertArrayEquals(expected, Question8.zeroMatrixConstantSpace(matrix));
+    }
+
+    @Test
+    public void noZerosInAnswerConstantSpace() {
+        int[][] matrix = {
+                {1, 2, 3},
+                {3, 4, 5},
+                {6, 7, 8},
+                {7, 9, 10}
+        };
+        int[][] expected = {
+                {1, 2, 3},
+                {3, 4, 5},
+                {6, 7, 8},
+                {7, 9, 10}
+        };
+
+        assertArrayEquals(expected, Question8.zeroMatrixConstantSpace(matrix));
     }
 }
