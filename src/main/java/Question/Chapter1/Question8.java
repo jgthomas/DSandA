@@ -38,7 +38,15 @@ public final class Question8 {
         return matrix;
     }
 
-    public static int[][] zeroMatrixConstantSpace(int[][] matrix) {
+  /**
+   * Example
+   *
+   * INPUT  { {1, 2, 0}, {3, 4, 5}, {6, 7, 8}, {0, 9, 10} }
+   * AFTER ROW PROCESSING { {1, 0, 1}, {3, 4, 5}, {6, 7, 8}, {0, 0, 0} };
+   * FIRST ROW TRACKS COLUMNS {1, 0, 1}
+   * AFTER COLUMN PROCESSING { {0, 0, 0}, {0, 4, 0}, {0, 7, 0}, {0, 0, 0} };
+   */
+  public static int[][] zeroMatrixConstantSpace(int[][] matrix) {
         int rowColumnTracker = -1;
 
         int rowCount = matrix.length;
@@ -59,6 +67,9 @@ public final class Question8 {
             return matrix;
         }
 
+        /*
+          fill columns with zeros if marked in the tracker row
+         */
         for (int col = 0; col < colCount; col++) {
             if (matrix[rowColumnTracker][col] == 1) {
                 for (int row = 0; row < rowCount; row++) {
