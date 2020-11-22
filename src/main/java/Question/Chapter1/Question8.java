@@ -55,8 +55,6 @@ public final class Question8 {
             }
         }
 
-        printMatrix(matrix);
-
         for (int col = 0; col < colCount; col++) {
             if (matrix[rowColumnTracker][col] == 1) {
                 for (int row = 0; row < rowCount; row++) {
@@ -65,22 +63,7 @@ public final class Question8 {
             }
         }
 
-        printMatrix(matrix);
-
         return matrix;
-    }
-
-    private static void printMatrix(int[][] matrix) {
-        for (int[] row : matrix) {
-            printRow(row);
-        }
-        System.out.println();
-    }
-
-    private static void printRow(int[] row) {
-        for (int pos : row) {
-            System.out.print(pos + " ");
-        }
     }
 
     private static void zeroRow(int[] row) {
@@ -111,10 +94,8 @@ public final class Question8 {
             for (int pos = 0; pos < row.length; pos++) {
                 if (row[pos] == 0) {
                     tracker[pos] = 1;
-                    row[pos] = 0;
-                } else {
-                    row[pos] = 0;
                 }
+                row[pos] = 0;
             }
         }
     }
